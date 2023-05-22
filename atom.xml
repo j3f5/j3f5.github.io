@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>J3fffff&#39;s Blog</title>
+  
+  
+  <link href="https://j3f5.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://j3f5.github.io/"/>
+  <updated>2023-05-22T13:29:05.248Z</updated>
+  <id>https://j3f5.github.io/</id>
+  
+  <author>
+    <name>Jeff</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO博客的搭建</title>
+    <link href="https://j3f5.github.io/articles/2023/05/22/HEXO%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
+    <id>https://j3f5.github.io/articles/2023/05/22/HEXO%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</id>
+    <published>2023-05-22T12:03:26.000Z</published>
+    <updated>2023-05-22T13:29:05.248Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装HEXO和相关插件"><a href="#安装HEXO和相关插件" class="headerlink" title="安装HEXO和相关插件"></a>安装HEXO和相关插件</h1><h2 id="hexo的安装"><a href="#hexo的安装" class="headerlink" title="hexo的安装"></a>hexo的安装</h2><p>先安装node.js，地址：<a href="https://nodejs.org/en">https://nodejs.org/en</a></p><p>安装完后安装Hexo：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><p>配置腾讯云节点：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://mirrors.cloud.tencent.com/npm/</span><br><span class="line">npm config get registry# 如果返回http://mirrors.cloud.tencent.com/npm/，说明镜像配置成功。</span><br></pre></td></tr></table></figure><h2 id="主题Pure以及配置"><a href="#主题Pure以及配置" class="headerlink" title="主题Pure以及配置"></a>主题Pure以及配置</h2><p>主题：<a href="https://github.com/cofess/hexo-theme-pure">https://github.com/cofess/hexo-theme-pure</a></p><p>先初始化一个文件夹，例如Blog：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init Blog</span><br></pre></td></tr></table></figure><p>加载主题：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/cofess/hexo-theme-pure.git themes/pure</span><br></pre></td></tr></table></figure><p>更新主题：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/pure</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><p>配置（需要配置根目录config）：<a href="https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html">参考1</a>，<a href="https://w714860761.github.io/2020/06/14/HexoTwo/">参考2</a>，<a href="https://tianbiao.top/29-pure%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">参考3</a>，<a href="https://hexo.io/zh-cn/docs/configuration.html">参考4</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN# 中文</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><p><a href="https://hexo.io/zh-cn/docs/writing">参考</a>，没啥要讲的，指令：<code>hexo n &quot;title&quot;</code>，即可。</p><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>模板在目录scaffolds里面，一般新建文件都会附上他的头，推荐头：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: HEXO博客的搭建</span><br><span class="line">toc: true</span><br><span class="line">sidebar: none</span><br><span class="line">date: 2023-05-22 20:03:26</span><br><span class="line">tags: [博客搭建]</span><br><span class="line">categories: [杂]</span><br><span class="line">descriptions: 本文介绍hexo搭建博客的心路历程</span><br><span class="line">typora-root-url: ..\..\..</span><br></pre></td></tr></table></figure><p>上面的<code>typora-root-url</code>很重要！下面说到。</p><h2 id="设置分类"><a href="#设置分类" class="headerlink" title="设置分类"></a>设置分类</h2><p>由于<code>post</code>文件夹里面的文章太多不好管理，那么只要我们分类一下即可。<a href="https://mrseawave.github.io/blogs/articles/2021/06/25/hexo-new-post-path/">参考</a></p><p>配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">permalink: &#x27;articles/:year/:month/:day/:name/&#x27;</span><br><span class="line">new_post_name: &#x27;:year/:month/:title.md&#x27;</span><br></pre></td></tr></table></figure><h2 id="Hexo与Typora协同"><a href="#Hexo与Typora协同" class="headerlink" title="Hexo与Typora协同"></a>Hexo与Typora协同</h2><p>先设置一下图片目录：优先相对路径，自己设置，然后在文件头上蛇者上面的玩意。</p><p>解释：也就是，typora会将图片自动加载到一个文件夹里（它自己设置的），后面我们只需要设置根目录<code>typora-root-url</code>，让hexo能链接到即可！</p><p><a href="https://blog.hjforever.com/2021/03/13/tool/typora_hexo/">参考</a></p><h2 id="404转发"><a href="#404转发" class="headerlink" title="404转发"></a>404转发</h2><p><a href="https://hexo-next.readthedocs.io/zh_CN/latest/hexo/advanced/404%E9%A1%B5%E9%9D%A2/">https://hexo-next.readthedocs.io/zh_CN/latest/hexo/advanced/404%E9%A1%B5%E9%9D%A2/</a></p><h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d # 推送 或者一起：hugo g -d</span><br><span class="line">hexo s # 本地测试</span><br><span class="line"></span><br><span class="line">hexo n &#x27;title&#x27;</span><br></pre></td></tr></table></figure><h2 id="推送hexo-d"><a href="#推送hexo-d" class="headerlink" title="推送hexo d"></a>推送<code>hexo d</code></h2><p>安装<code>npm install hexo-deployer-git --save</code></p><p>然后配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io</span><br><span class="line">  branch: [branch]</span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure><p>参考：<a href="https://hexo.io/zh-cn/docs/one-command-deployment.html">https://hexo.io/zh-cn/docs/one-command-deployment.html</a></p><h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><h2 id="Spawn-failed"><a href="#Spawn-failed" class="headerlink" title="Spawn failed"></a>Spawn failed</h2><p><a href="https://blog.csdn.net/Kevin_Carpricron/article/details/124069885">https://blog.csdn.net/Kevin_Carpricron/article/details/124069885</a></p><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="/images/HEXO%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/image-20230522210500989.png" alt="image-20230522210500989"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;安装HEXO和相关插件&quot;&gt;&lt;a href=&quot;#安装HEXO和相关插件&quot; class=&quot;headerlink&quot; title=&quot;安装HEXO和相关插件&quot;&gt;&lt;/a&gt;安装HEXO和相关插件&lt;/h1&gt;&lt;h2 id=&quot;hexo的安装&quot;&gt;&lt;a href=&quot;#hexo的安装&quot; c</summary>
+      
+    
+    
+    
+    <category term="杂" scheme="https://j3f5.github.io/categories/%E6%9D%82/"/>
+    
+    
+    <category term="博客搭建" scheme="https://j3f5.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+</feed>

@@ -29,15 +29,6 @@
   </url>
   
   <url>
-    <loc>https://j3f5.github.io/repository/index.html</loc>
-    
-    <lastmod>2023-05-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://j3f5.github.io/links/index.html</loc>
     
     <lastmod>2023-05-22</lastmod>
@@ -47,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://j3f5.github.io/books/index.html</loc>
+    <loc>https://j3f5.github.io/repository/index.html</loc>
     
     <lastmod>2023-05-22</lastmod>
     
@@ -57,6 +48,15 @@
   
   <url>
     <loc>https://j3f5.github.io/categories/index.html</loc>
+    
+    <lastmod>2023-05-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://j3f5.github.io/books/index.html</loc>
     
     <lastmod>2023-05-22</lastmod>
     
@@ -92,14 +92,14 @@
 
   
   <url>
-    <loc>https://j3f5.github.io/tags/sql%E6%B3%A8%E5%85%A5/</loc>
+    <loc>https://j3f5.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2023-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://j3f5.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://j3f5.github.io/tags/sql%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2023-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -108,14 +108,14 @@
 
   
   <url>
-    <loc>https://j3f5.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://j3f5.github.io/categories/%E6%9D%82/</loc>
     <lastmod>2023-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://j3f5.github.io/categories/%E6%9D%82/</loc>
+    <loc>https://j3f5.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2023-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

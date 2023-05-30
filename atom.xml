@@ -6,7 +6,7 @@
   <link href="https://j3f5.github.io/atom.xml" rel="self"/>
   
   <link href="https://j3f5.github.io/"/>
-  <updated>2023-05-29T14:53:16.111Z</updated>
+  <updated>2023-05-30T01:20:08.000Z</updated>
   <id>https://j3f5.github.io/</id>
   
   <author>
@@ -21,11 +21,28 @@
     <link href="https://j3f5.github.io/articles/2023/05/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/"/>
     <id>https://j3f5.github.io/articles/2023/05/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/</id>
     <published>2023-05-29T14:53:16.000Z</published>
-    <updated>2023-05-29T14:53:16.111Z</updated>
+    <updated>2023-05-30T01:20:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h1><ol><li>明确目标</li><li>分析风险、获得授权</li><li>信息搜集</li><li>漏洞探测</li><li>漏洞验证</li><li>信息分析</li><li>利用漏洞</li><li>信息整理</li><li>形成报告</li></ol><h1 id="明确目标"><a class="markdownIt-Anchor" href="#明确目标"></a> 明确目标</h1><ol><li>确定范围：测试的范围，如：IP、域名、内外网、整站or部分模块</li><li>确定规则：能渗透到什么程度（发现漏洞为止or继续利用漏洞）、时间限制、能否修改上传、能否提权…<ul><li>目标系统介绍、重点保护对象及特性。</li><li>是否允许数据破坏？</li><li>是否允许阻断业务正常运行？</li><li>测试之前是否应当知会相关部门接口人？</li><li>接入方式？外网和内网？</li><li>测试是发现问题就算成功，还是尽可能的发现多的问题？</li><li>渗透过程是否需要考虑社会工程？</li></ul></li><li>确定需求：web应用的漏洞(新上线程序)？业务逻辑漏洞（针对业务的）？人员权限管理漏洞（针对人员、权限）？根据需求和自己技术能力来确定能不能做、能做多少</li></ol><h1 id="分析风险-获得授权"><a class="markdownIt-Anchor" href="#分析风险-获得授权"></a> 分析风险、获得授权</h1><p>分析渗透测试过程中可能产生的风险，如大量测试数据的处理、影响正常业务开展、服务器发生异常的应急、数据备份和恢复、测试人力物力成本…由测试方书写实施方案初稿并提交给客户（or本公司内部领导）进行审核。在审核完成后，从客户（or本公司内部领导）获取对测试方进行书面委托授权书，授权测试方进行渗透测试。</p><h1 id="信息搜集"><a class="markdownIt-Anchor" href="#信息搜集"></a> 信息搜集</h1><p><img src="/images/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86.png" alt="信息搜集" /></p><h1 id="漏洞利用"><a class="markdownIt-Anchor" href="#漏洞利用"></a> 漏洞利用</h1><p>利用上一步中列出的信息，使用相应的漏洞检测</p><p>方法：1）漏扫：AWVS、AppScan…2）结合漏洞去exploit-db等位置找利用3）在网上寻找验证POC</p><p>内容：系统漏洞：系统没有及时打补丁Websever漏洞：Websever配置问题Web应用漏洞：Web应用开发问题其它端口服务漏洞：各种21/8080(st2)/7001/22/3389通信安全：明文传输，token在cookie中传送等</p><h1 id="漏洞验证"><a class="markdownIt-Anchor" href="#漏洞验证"></a> 漏洞验证</h1><p>将上一步中发现的有可能可以成功利用的全部漏洞都验证一遍。结合实际情况，搭建模拟环境进行试验，成功后再应用于目标中。</p><ul><li>自动化验证：结合自动化扫描工具提供的结果</li><li>手工验证：根据公开资源进行验证</li><li>试验验证：自己搭建模拟环境进行验证</li><li>登录猜解：有时可以尝试猜解一下登陆口的账号密码等信息</li><li>业务漏洞验证：如发现业务漏洞，要进行验证</li><li>公开资源的利用exploit-db/wooyun/渗透代码网站通用、缺省口令厂商的漏洞警告等</li></ul><h1 id="信息分析"><a class="markdownIt-Anchor" href="#信息分析"></a> 信息分析</h1><p>为下一步实施渗透做准备</p><ul><li>精准攻击：准备好上一步探测到的漏洞exp（漏洞利用），用来精准攻击</li><li>绕过防御机制：是否有防火墙等设备，如何绕过</li><li>定制攻击路径：最佳工具路径，根据薄弱入口，高内网权限位置，最终目标</li><li>绕过检测机制：是否有检测机制，流量监控，杀毒软件，恶意代码检测等（免杀）</li><li>攻击代码：经过试验得来的代码，包括不限于xss代码，sql注入语句等</li></ul><h1 id="利用漏洞获取数据"><a class="markdownIt-Anchor" href="#利用漏洞获取数据"></a> 利用漏洞，获取数据</h1><ul><li>实施攻击：根据前几步的结果，进行攻击</li><li>获取内部信息：基础设施（网络连接，vpn，路由，拓扑等）</li><li>进一步渗透：内网入侵，敏感目标</li><li>持续性存在：一般对客户做渗透不需要。rookit，后门，添加管理账号，驻扎手法等</li><li>清理痕迹：清理相关日志（访问，操作），上传文件等</li></ul><h1 id="信息整理"><a class="markdownIt-Anchor" href="#信息整理"></a> 信息整理</h1><ul><li>整理渗透工具：整理渗透过程中用到的代码，poc，exp等</li><li>整理收集信息：整理渗透过程中收集到的一切信息</li><li>整理漏洞信息：整理渗透过程中遇到的各种漏洞，各种脆弱位置信息</li><li>目的：为了最后形成报告，形成测试结果使用。</li></ul><h1 id="形成报告"><a class="markdownIt-Anchor" href="#形成报告"></a> 形成报告</h1><ul><li>按需整理：按照之前第一步跟客户确定好的范围，需求来整理资料，并将资料形成报告</li><li>补充介绍：要对漏洞成因，验证过程和带来危害进行分析</li><li>修补建议：当然要对所有产生的问题提出合理高效安全的解决办</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;明确目标&lt;/li&gt;
+&lt;li&gt;分析风险、获得授权&lt;/li&gt;
+&lt;li&gt;信息搜集&lt;/li&gt;
+&lt;li&gt;漏洞探测&lt;/li&gt;
+&lt;li&gt;漏洞验证&lt;</summary>
+      
     
     
     
+    <category term="渗透测试基础" scheme="https://j3f5.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"/>
     
+    
+    <category term="整体流程" scheme="https://j3f5.github.io/tags/%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/"/>
     
   </entry>
   

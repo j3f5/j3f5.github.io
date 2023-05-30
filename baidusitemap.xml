@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://j3f5.github.io/articles/2023/05/30/XSS%E8%B7%A8%E7%AB%99%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2023-05-30</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/05/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/</loc>
+    <lastmod>2023-05-30</lastmod>
+  </url>
+  <url>
     <loc>https://j3f5.github.io/articles/2023/05/30/GBT-40855-2021%E8%A7%A3%E8%AF%BB/</loc>
     <lastmod>2023-05-30</lastmod>
   </url>

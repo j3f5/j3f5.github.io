@@ -6,7 +6,7 @@
   <link href="https://j3f5.github.io/atom.xml" rel="self"/>
   
   <link href="https://j3f5.github.io/"/>
-  <updated>2023-05-30T03:26:16.000Z</updated>
+  <updated>2023-05-30T08:40:42.000Z</updated>
   <id>https://j3f5.github.io/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XSS跨站基础</title>
+    <link href="https://j3f5.github.io/articles/2023/05/30/XSS%E8%B7%A8%E7%AB%99%E5%9F%BA%E7%A1%80/"/>
+    <id>https://j3f5.github.io/articles/2023/05/30/XSS%E8%B7%A8%E7%AB%99%E5%9F%BA%E7%A1%80/</id>
+    <published>2023-05-30T08:40:42.000Z</published>
+    <updated>2023-05-30T08:40:42.000Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>文件上传进阶-waf绕过及安全修复</title>
+    <link href="https://j3f5.github.io/articles/2023/05/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/"/>
+    <id>https://j3f5.github.io/articles/2023/05/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/</id>
+    <published>2023-05-30T07:22:30.000Z</published>
+    <updated>2023-05-30T07:22:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="上传参数名解析明确哪些参数名可以修改"><a class="markdownIt-Anchor" href="#上传参数名解析明确哪些参数名可以修改"></a> 上传参数名解析：明确哪些参数名可以修改</h1><ul><li>content-Disposition:一般可更改（form-data）接受表单的数据</li><li>name:表单参数值，不能更改</li><li>filename:文件名，可以更改</li><li>connect-Type：文件MIME，试情况而定</li></ul><h1 id="常见绕过方法"><a class="markdownIt-Anchor" href="#常见绕过方法"></a> 常见绕过方法</h1><ul><li><p>数据溢出-防止匹配（<code>xxx...</code>）也就是垃圾数据使得WAF无法匹配</p><ul><li><img src="/images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/image-20230530153840549.png" alt="image-20230530153840549" /></li><li><code>Content-Disposition: form-data; **大量垃圾数据**; name=“upload_file” ; 大量垃圾数据; filename=&quot; xxxx&quot;</code></li><li>拦截继续，拦截就继续加。但是可能会上传失败，上传失败就不好用了</li></ul></li><li><p>符号变异-防匹配（<code>' &quot; ;</code>）匹配<code>''</code>以及<code>&quot;&quot;</code>里面的内容，没匹配到，所以绕过</p><ul><li>safedog匹配文件名的原则，应该是在“xxxx” ‘xxxx’ 双引号或单引号之间的。双引号在后面的时候，被安全狗拦截，说明匹配的是后面的双引号，(或者单引号),之前的文件名</li></ul></li><li><p>数据截断-防匹配（<code>%00 ; 换行</code>）</p><ul><li><p>换行后，安全狗匹配的就是</p></li><li><p><img src="/images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/image-20230530155147840.png" alt="image-20230530155147840" /></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x.p\nph\np</span><br><span class="line">x.\np\nph\np</span><br><span class="line">x\n.\np\nph\np</span><br><span class="line">\nx\n.\np\nph\np</span><br></pre></td></tr></table></figure></li></ul></li><li><p>重复数据-防匹配（<code>参数多次</code>） 主要是绕过狗子，然后进行绕过</p><ul><li><p>白名单概念 过滤filename中的值，就把数据包的一些数据名称（白名单概念）插入到其中</p></li><li><p><img src="/images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%BF%9B%E9%98%B6-waf%E7%BB%95%E8%BF%87%E5%8F%8A%E5%AE%89%E5%85%A8%E4%BF%AE%E5%A4%8D/image-20230530155249886.png" alt="image-20230530155249886" /></p></li><li><p><code>filename=&quot; Content-Disposition: form-data; name=“upload_file” ; x.php&quot;</code></p><p><code>Content-Disposition： form-data； name=“upload_file” ; x.php</code></p><p>安全狗认为：当检测Filename的时候，由于递归关系，继续检测，因为<code>x.php</code>跟在了之前的<code>Content-Disposition： form-data； name=&quot;upload_file&quot;</code>的后面，而不是<code>filename</code>的值，所以他认为是无用数据，但是在数据包中<code>x.php</code>确实在<code>“xxxxx”</code> 双引号之间，所以会被成功上传。</p></li></ul></li></ul><h2 id="怎么去学习绕过waf"><a class="markdownIt-Anchor" href="#怎么去学习绕过waf"></a> 怎么去学习绕过waf</h2><p>因为WAF都是基于数据包检测的，所以你得知道WAF是怎么匹配我们的数据包的，就拿上面的例子来说。</p><ol><li>大量脏数据：可能就是waf匹配机制只是匹配前多少多少字节，然后后面就不匹配了</li><li><code>; filename</code>等识别：看正则匹配的条件，也就是绕过正则，一般改动不会影响数据上传的话，就直接该（参考可以改什么）</li></ol><p>只要清楚WAF的机制，那么我们学起来就会一通百通！</p><p>再举个例子，如果waf是检测<code>filename=&quot;&quot;</code>的最后一个<code>&quot;</code>，那么，只要我们这样构造：<code>filename=&quot;sss&quot;s.php</code>他就不拦截了，会保存为<code>s.php</code>。</p><p><strong>但是需要注意的是，你上传的必须都要是可以执行的php文件，因为解析漏洞可不是那么好找的！</strong></p><h1 id="修复"><a class="markdownIt-Anchor" href="#修复"></a> 修复</h1><ol><li>后端验证：采用服务端验证模式</li><li>后缀检测：基于黑名单，白名单过滤</li><li>MIME 检测：基于上传自带类型检测</li><li>内容检测：文件头，完整性检测</li><li>自带函数过滤：参考 uploadlabs 函数</li><li>自定义函数过滤：function check_file(){}</li><li>WAF 防护产品：宝塔，云盾，安全公司产品等</li></ol><h1 id="资源"><a class="markdownIt-Anchor" href="#资源"></a> 资源</h1><p>字典</p><ul><li><a href="https://github.com/fuzzdb-project/fuzzdb">https://github.com/fuzzdb-project/fuzzdb</a></li><li><a href="https://github.com/TheKingOfDuck/fuzzDicts">https://github.com/TheKingOfDuck/fuzzDicts</a></li></ul><h2 id="fuzz"><a class="markdownIt-Anchor" href="#fuzz"></a> FUZZ</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">filename=x.php</span><br><span class="line">filename=&quot;x.php</span><br><span class="line">filename=&#x27;x.php</span><br><span class="line">filename=&quot;a.jpg;.php&quot;;</span><br><span class="line">filename=&quot;a.php%00.jpg&quot;</span><br><span class="line">filename=&quot;connect-disposition:from-data;</span><br><span class="line">name=&quot;upload_file&quot;;x.php&quot;</span><br><span class="line">filename=&quot;x.jpg&quot;;filename=&quot;x.jpg&quot;;.....filename=&quot;x.php&quot;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;上传参数名解析明确哪些参数名可以修改&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#上传参数名解析明确哪些参数名可以修改&quot;&gt;&lt;/a&gt; 上传参数名解析：明确哪些参数名可以修改&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;content-Dispositi</summary>
+      
+    
+    
+    
+    <category term="渗透测试基础" scheme="https://j3f5.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="文件上传" scheme="https://j3f5.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>GBT-40855-2021——电动汽车远程服务与管理系统解读</title>

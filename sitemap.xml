@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://j3f5.github.io/articles/2023/05/30/GBT-40855-2021%E8%A7%A3%E8%AF%BB/</loc>
+    
+    <lastmod>2023-05-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/05/30/SQL%E6%B3%A8%E5%85%A5%E8%BF%9B%E9%98%B6-%E9%98%B2%E5%BE%A1%E6%8E%AA%E6%96%BD%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%BA%A7%E5%AE%89%E5%85%A8/</loc>
+    
+    <lastmod>2023-05-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://j3f5.github.io/articles/2023/05/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B/</loc>
     
     <lastmod>2023-05-30</lastmod>
@@ -180,6 +198,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://j3f5.github.io/tags/%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2023-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -191,6 +216,13 @@
   
   <url>
     <loc>https://j3f5.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2023-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://j3f5.github.io/categories/%E8%BD%A6%E8%81%94%E7%BD%91%E6%A0%87%E5%87%86/</loc>
     <lastmod>2023-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

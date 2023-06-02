@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://j3f5.github.io/articles/2023/06/01/RCE%E5%9F%BA%E7%A1%80-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/</loc>
-    <lastmod>2023-06-01</lastmod>
+    <loc>https://j3f5.github.io/articles/2023/06/02/RCE%E5%9F%BA%E7%A1%80-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C&%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/</loc>
+    <lastmod>2023-06-02</lastmod>
   </url>
   <url>
     <loc>https://j3f5.github.io/articles/2023/06/01/CSRF%E4%B8%8ESSRF%E6%BC%8F%E6%B4%9E%E5%9F%BA%E7%A1%80/</loc>

@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://j3f5.github.io/articles/2023/05/22/HEXO%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://j3f5.github.io/articles/2023/06/06/DNSlog%E6%95%B0%E6%8D%AE%E5%A4%96%E5%B8%A6%E5%9C%A8%E5%90%84%E7%A7%8D%E6%94%BB%E5%87%BB%E7%9A%84%E5%88%A9%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%88%E6%97%A0%E5%9B%9E%E6%98%BE%EF%BC%89/</loc>
     
     <lastmod>2023-06-06</lastmod>
@@ -131,15 +140,6 @@
     <loc>https://j3f5.github.io/articles/2023/05/29/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2023-05-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://j3f5.github.io/articles/2023/05/22/HEXO%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/</loc>
-    
-    <lastmod>2023-05-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

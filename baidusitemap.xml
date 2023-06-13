@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://j3f5.github.io/articles/2023/06/12/WAF%E7%BB%95%E8%BF%87-%E4%B8%80%E8%88%AC%E6%80%A7%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2023-06-12</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/06/12/HTTP%E4%B8%8E%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2023-06-12</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/06/12/%E8%BD%A6%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80-%E5%8D%8F%E8%AE%AE/</loc>
+    <lastmod>2023-06-12</lastmod>
+  </url>
+  <url>
     <loc>https://j3f5.github.io/articles/2023/06/07/JWT%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2023-06-08</lastmod>
   </url>

@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://j3f5.github.io/articles/2023/08/10/%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2023-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/14/NTLM-relay%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2023-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/14/relay%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2023-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/14/PTT%E4%B8%8EMS14-068/</loc>
+    <lastmod>2023-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/14/MS14-068%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2023-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/11/BypassUAC%E6%8F%90%E6%9D%83/</loc>
+    <lastmod>2023-08-11</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/10/SYSVOL%E3%80%81GPP%E5%92%8CMS14-025%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2023-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/10/zeroLogon%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</loc>
+    <lastmod>2023-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://j3f5.github.io/articles/2023/08/08/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E5%B7%A5%E5%85%B7%E5%AE%9E%E9%AA%8C%E7%89%88/</loc>
+    <lastmod>2023-08-08</lastmod>
+  </url>
+  <url>
     <loc>https://j3f5.github.io/articles/2023/08/03/CAN%E6%80%BB%E7%BA%BF%E6%B5%8B%E8%AF%95%E6%A0%B7%E4%BE%8B/</loc>
     <lastmod>2023-08-03</lastmod>
   </url>
@@ -38,10 +74,6 @@
   </url>
   <url>
     <loc>https://j3f5.github.io/articles/2023/07/10/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</loc>
-    <lastmod>2023-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://j3f5.github.io/articles/2023/07/10/%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/</loc>
     <lastmod>2023-07-10</lastmod>
   </url>
   <url>
